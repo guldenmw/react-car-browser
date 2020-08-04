@@ -2,63 +2,45 @@ import styled from 'styled-components';
 
 
 export const StyledVehicleCard = styled.div<any>`
-  //border: 1px solid black;
   border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
   display: flex;
   margin: 10px 20px;
-  padding: 20px;
-  position: relative;
+  max-width: 1200px;
+  max-height: 180px;
   
   img {
     height: 180px;
-    width: 350px;
+    min-width: 350px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
   }
 
-  .vehicle-details {
+  .vehicle-listing-body {
+    margin: 15px 20px;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-    justify-content: center;
+    
+    .description {
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+    }
 
-    .vehicle-detail {
+    .add-to-cart {
       display: flex;
-      padding-bottom: 20px;
-      font-size: 18px;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      min-width: 150px;
+      margin-left: 15px;
 
-      .label {
-        line-height: 14px;
-        font-weight: 500;
-        min-width: 110px;
+      .vehicle-price {
+        span {
+          font-size: 25px;
+        }
       }
-      
-      .value {
-        flex: 1;
-        line-height: 14px;
-        font-weight: 500;
-        padding-left: 15px;
-      }
-    }
-  }
-  
-  .vehicle-price {
-    position: absolute;
-    right: 30px;
-    
-    span {
-      font-size: 25px;
-    }
-  }
-  
-  .add-to-cart {
-    position: absolute;
-    right: 30px;
-    bottom: 20px;
-    
-    button {
-      background-color: #8bc34a;
     }
   }
 `;

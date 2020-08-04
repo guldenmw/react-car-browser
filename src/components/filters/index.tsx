@@ -22,8 +22,6 @@ const priceRange = [
   { label: 'R1 200 000', value: '1200000'},
   { label: 'R1 400 000', value: '1400000'},
   { label: 'R1 600 000', value: '1600000'},
-  { label: 'R1 800 000', value: '1800000'},
-  { label: 'R2 000 000', value: '2000000'},
 ]
 
 /**

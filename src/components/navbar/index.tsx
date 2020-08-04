@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { AppBar, Badge, Box, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { IVehicle } from '../../modules/interfaces';
-import { StyledPopover } from './styles';
+import { StyledPopover, StyledShoppingCartIcon } from './styles';
 import { connect } from 'react-redux';
 import { mapDispatchToProps, mapStateToProps } from './container';
 
@@ -43,12 +42,12 @@ const Navbar: FC<IProps> = (props) => {
         </Box>
         <IconButton
           onClick={handleClick}
-          aria-label="show shopping cart"
-          aria-controls="shopping-cart-menu"
-          aria-haspopup="true"
+          aria-label={'show shopping cart'}
+          aria-controls={'shopping-cart-menu'}
+          aria-haspopup={'true'}
         >
           <Badge badgeContent={cart?.length} color={'error'}>
-            <ShoppingCartIcon />
+            <StyledShoppingCartIcon/>
           </Badge>
         </IconButton>
         <StyledPopover

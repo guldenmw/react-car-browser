@@ -4,7 +4,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { StyledVehicleCard } from './styles';
 import { connect } from 'react-redux';
 import { mapDispatchToProps } from './container';
-import { Button, IconButton } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 
 const imageBaseUrl = 'https://warpfrontendtestserver.herokuapp.com/public'
 
@@ -27,33 +27,31 @@ const VehicleCard: FC<IProps> = (props) => {
   return (
     <StyledVehicleCard>
       <img className={'vehicle-image'} src={imgUrl} alt={vehicleDescription}/>
-      <div className={'vehicle-details'}>
-        <div className={'vehicle-detail'}>
-          <span className={'label'}>Manufacturer: </span>
-          <span className={'value'}>{vehicle?.manufacturer}</span>
-        </div>
-
-        <div className={'vehicle-detail'}>
-          <span className={'label'}>Model: </span>
-          <span className={'value'}>{vehicle?.model}</span>
-        </div>
-
-        <div className={'vehicle-detail'}>
-          <span className={'label'}>Body: </span>
-          <span className={'value'}>{vehicle?.body}</span>
-        </div>
-      </div>
-      <div className={'vehicle-price'}>
-        <span>{`R${vehicle?.price}`}</span>
-      </div>
-      <div className={'add-to-cart'}>
-        <Button
-          variant={'contained'}
-          onClick={e => addItemToCart(vehicle)}
-          startIcon={<AddShoppingCartIcon/>}
-        >
-          Add to cart
-        </Button>
+      <div className={'vehicle-listing-body'}>
+        <article className={'description'}>
+          <Typography variant={'h6'}>{vehicle?.manufacturer} {vehicle?.model} - {vehicle?.body}</Typography>
+          <div className={'vehicle-summary'}>
+            <Typography variant={'caption'}>
+              {vehicle?.summary}
+            </Typography>
+          </div>
+        </article>
+        <section className={'add-to-cart'}>
+          <div className={'vehicle-price'}>
+            <span>{`R${vehicle?.price}`}</span>
+          </div>
+          <div className={'add-to-cart'}>
+            <Button
+              variant={'contained'}
+              onClick={e => addItemToCart(vehicle)}
+              startIcon={<AddShoppingCartIcon/>}
+              color={'primary'}
+              size={'small'}
+            >
+              Add to cart
+            </Button>
+          </div>
+        </section>
       </div>
     </StyledVehicleCard>
   );

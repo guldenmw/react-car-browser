@@ -5,17 +5,29 @@ import getWikiSummary from '../api/get-wiki-summary';
 import { IVehicle, IVehiclesResponse, IWikiResponse } from '../interfaces';
 
 /**
+ * Truncate summary to a certain length to preserve responsiveness
+ */
+const truncateSummary = (summary: string) => {
+  let truncated = summary;
+  while (truncated?.length > 210) {
+    const split = truncated.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
+    split.pop();
+    truncated = split.join(' ');
+  }
+  return truncated;
+}
+
+/**
  * Iterate through vehicles, appending a summary fetched
  * from Wikipedia to each vehicle object
  * @param vehicles - API response object containing vehicles nested under 'data' key
  */
 const getVehicleSummaries = async (vehicles: IVehiclesResponse) => {
   return await Promise.all(vehicles?.data?.map(async (vehicle: IVehicle) => {
-    let model = vehicle?.model === '911' ? '997' : vehicle?.model;
-    const vehicleTitle = `${vehicle?.manufacturer}_${model}`;
+    const vehicleTitle = `${vehicle?.manufacturer}_${vehicle?.model}`;
 
     const wikiResponse: IWikiResponse = await getWikiSummary(vehicleTitle);
-    const summary = wikiResponse?.extract;
+    const summary = truncateSummary(wikiResponse?.extract);
 
     return await {
       ...vehicle,
