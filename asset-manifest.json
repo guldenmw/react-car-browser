@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/warp-assessment/static/css/main.77c36acc.chunk.css",
+    "main.js": "/warp-assessment/static/js/main.d90c39ad.chunk.js",
+    "main.js.map": "/warp-assessment/static/js/main.d90c39ad.chunk.js.map",
+    "runtime-main.js": "/warp-assessment/static/js/runtime-main.3689965d.js",
+    "runtime-main.js.map": "/warp-assessment/static/js/runtime-main.3689965d.js.map",
+    "static/js/2.cd7a050c.chunk.js": "/warp-assessment/static/js/2.cd7a050c.chunk.js",
+    "static/js/2.cd7a050c.chunk.js.map": "/warp-assessment/static/js/2.cd7a050c.chunk.js.map",
+    "index.html": "/warp-assessment/index.html",
+    "precache-manifest.acd3551d3aa9419b27f627795389d555.js": "/warp-assessment/precache-manifest.acd3551d3aa9419b27f627795389d555.js",
+    "service-worker.js": "/warp-assessment/service-worker.js",
+    "static/css/main.77c36acc.chunk.css.map": "/warp-assessment/static/css/main.77c36acc.chunk.css.map",
+    "static/js/2.cd7a050c.chunk.js.LICENSE.txt": "/warp-assessment/static/js/2.cd7a050c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3689965d.js",
+    "static/js/2.cd7a050c.chunk.js",
+    "static/css/main.77c36acc.chunk.css",
+    "static/js/main.d90c39ad.chunk.js"
+  ]
+}
