@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
+import { Autocomplete } from '@material-ui/lab';
 import { Filter, FilterHeader, StyledFilters } from './styles';
 import { connect } from 'react-redux';
 import { mapDispatchToProps, mapStateToProps } from './container';
 import { IFilters } from '../../modules/interfaces';
+import { Button, TextField } from '@material-ui/core';
 
 interface IProps {
   filters?: IFilters;
@@ -24,56 +26,87 @@ const priceRange = [
   { label: 'R2 000 000', value: '2000000'},
 ]
 
+/**
+ * Component responsible for updating filter values to state
+ *
+ * @param props
+ * @constructor
+ */
 const Filters: FC<IProps> = (props) => {
   const {
     filters,
     updateFilter,
     resetFilters,
   } = props;
+  const priceFrom = priceRange.find((price) => price?.value === filters?.priceFrom);
+  const priceTo = priceRange.find((price) => price?.value === filters?.priceTo);
 
   return (
     <StyledFilters className={'filters'}>
       <Filter>
-        <FilterHeader>Manufacturer</FilterHeader>
-        <select onChange={e => updateFilter('manufacturer', e?.target?.value)} value={filters?.manufacturer}>
-          <option value={'Any'}>Any</option>
-          <option value={'Nissan'}>Nissan</option>
-          <option value={'BMW'}>BMW</option>
-          <option value={'Audi'}>Audi</option>
-          <option value={'Mercedes-Benz'}>Mercedes-Benz</option>
-          <option value={'Ford'}>Ford</option>
-        </select>
+        <Autocomplete
+          value={filters?.manufacturer}
+          onChange={(event: any, newValue: string | null) => {
+            updateFilter('manufacturer', newValue);
+          }}
+          disableClearable
+          options={[
+            'Any',
+            'Porsche',
+            'Nissan',
+            'BMW',
+            'Audi',
+            'Mercedes-Benz',
+            'Ford',
+          ]}
+          renderInput={(params) => <TextField {...params} label={'Manufacturer'}/>}
+        />
       </Filter>
       <Filter>
-        <FilterHeader>Body Style</FilterHeader>
-        <select onChange={e => updateFilter('body', e?.target?.value)} value={filters?.body}>
-          <option value={'Any'}>Any</option>
-          <option value={'Coupé'}>Coupé</option>
-          <option value={'Sedan'}>Sedan</option>
-          <option value={'SUV'}>SUV</option>
-        </select>
+        <Autocomplete
+          value={filters?.body}
+          onChange={(event: any, newValue: string | null) => {
+            updateFilter('body', newValue);
+          }}
+          disableClearable
+          options={[
+            'Any',
+            'Coupé',
+            'Sedan',
+            'SUV',
+          ]}
+          renderInput={(params) => <TextField {...params} label={'Body Style'}/>}
+        />
       </Filter>
       <Filter>
         <FilterHeader>Price Range</FilterHeader>
       </Filter>
       <Filter>
-        <FilterHeader>From</FilterHeader>
-        <select onChange={e => updateFilter('priceFrom', e?.target?.value)} value={filters?.priceFrom}>
-          {priceRange.map(({ label, value }, index) => (
-            <option value={value} key={index}>{label}</option>
-          ))}
-        </select>
+        <Autocomplete
+          value={priceFrom}
+          onChange={(event: any,  newValue: { label: string, value: string }) => {
+            updateFilter('priceFrom', newValue?.value);
+          }}
+          disableClearable
+          options={priceRange}
+          getOptionLabel={(option) => option?.label}
+          renderInput={(params) => <TextField {...params} label={'Price From'}/>}
+        />
       </Filter>
       <Filter>
-        <FilterHeader>To</FilterHeader>
-        <select onChange={e => updateFilter('priceTo', e?.target?.value)} value={filters?.priceTo}>
-          {priceRange.map(({ label, value }, index) => (
-            <option value={value} key={index}>{label}</option>
-          ))}
-        </select>
+        <Autocomplete
+          value={priceTo}
+          onChange={(event: any, newValue: { label: string, value: string }) => {
+            updateFilter('priceTo', newValue?.value);
+          }}
+          disableClearable
+          options={priceRange}
+          getOptionLabel={(option) => option?.label}
+          renderInput={(params) => <TextField {...params} label={'Price To'}/>}
+        />
       </Filter>
       <Filter>
-        <button onClick={resetFilters}>Reset</button>
+        <Button variant={'contained'} onClick={resetFilters}>Reset</Button>
       </Filter>
     </StyledFilters>
   );
