@@ -1,4 +1,4 @@
-import { IVehicle, IVehiclesResponse } from '../interfaces';
+import { IVehicle } from '../interfaces';
 
 export const FETCH_VEHICLES_START = 'fetch-vehicles-start';
 export const FETCH_VEHICLES_SUCCESS = 'fetch-vehicles-success';
@@ -13,7 +13,7 @@ export const fetchVehiclesStart = () => ({
   type: FETCH_VEHICLES_START,
 });
 
-export const fetchVehiclesSuccess = (data: IVehiclesResponse) => ({
+export const fetchVehiclesSuccess = (data: IVehicle[]) => ({
   type: FETCH_VEHICLES_SUCCESS, data,
 });
 

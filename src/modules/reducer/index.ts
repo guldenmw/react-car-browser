@@ -44,7 +44,7 @@ const vehicleReducer = (state = initialState, action: {type: string, data: any})
     case FETCH_VEHICLES_SUCCESS: {
       return {
         ...state,
-        vehicles: data?.data,
+        vehicles: data,
         isLoading: false,
         hasError: false,
       }

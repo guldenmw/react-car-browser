@@ -59,3 +59,61 @@ export const vehiclesResponseMock = {
     }
   ], 'message': '7 Found'
 }
+
+export const wikiSummaryResponseMock = {
+  "type": "standard",
+  "title": "Ford Mustang",
+  "displaytitle": "Ford Mustang",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q183476",
+  "titles": {
+    "canonical": "Ford_Mustang",
+    "normalized": "Ford Mustang",
+    "display": "Ford Mustang"
+  },
+  "pageid": 105908,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/2018_Ford_Mustang_GT_5.0_Front.jpg/320px-2018_Ford_Mustang_GT_5.0_Front.jpg",
+    "width": 320,
+    "height": 170
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/5/5d/2018_Ford_Mustang_GT_5.0_Front.jpg",
+    "width": 3912,
+    "height": 2073
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "964854387",
+  "tid": "dc3cd390-c972-11ea-81a9-0ba1986df59e",
+  "timestamp": "2020-06-27T23:56:27Z",
+  "description": "American car manufactured by Ford",
+  "description_source": "local",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Ford_Mustang",
+      "revisions": "https://en.wikipedia.org/wiki/Ford_Mustang?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Ford_Mustang?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Ford_Mustang"
+    },
+    "mobile": {
+      "page": "https://en.m.wikipedia.org/wiki/Ford_Mustang",
+      "revisions": "https://en.m.wikipedia.org/wiki/Special:History/Ford_Mustang",
+      "edit": "https://en.m.wikipedia.org/wiki/Ford_Mustang?action=edit",
+      "talk": "https://en.m.wikipedia.org/wiki/Talk:Ford_Mustang"
+    }
+  },
+  "api_urls": {
+    "summary": "https://en.wikipedia.org/api/rest_v1/page/summary/Ford_Mustang",
+    "metadata": "https://en.wikipedia.org/api/rest_v1/page/metadata/Ford_Mustang",
+    "references": "https://en.wikipedia.org/api/rest_v1/page/references/Ford_Mustang",
+    "media": "https://en.wikipedia.org/api/rest_v1/page/media/Ford_Mustang",
+    "edit_html": "https://en.wikipedia.org/api/rest_v1/page/html/Ford_Mustang",
+    "talk_page_html": "https://en.wikipedia.org/api/rest_v1/page/html/Talk:Ford_Mustang"
+  },
+  "extract": "The Ford Mustang is a series of American automobiles manufactured by Ford. In continuous production since 1964, the Mustang is currently the longest-produced Ford car nameplate. Currently in its sixth generation, it is the fifth-best selling Ford car nameplate. The namesake of the \"pony car\" automobile segment, the Mustang was developed as a highly styled line of sporty coupes and convertibles derived from existing model lines, initially distinguished by \"long hood, short deck\" proportions.",
+  "extract_html": "<p>The <b>Ford Mustang</b> is a series of American automobiles manufactured by Ford. In continuous production since 1964, the Mustang is currently the longest-produced Ford car nameplate. Currently in its sixth generation, it is the fifth-best selling Ford car nameplate. The namesake of the \"pony car\" automobile segment, the Mustang was developed as a highly styled line of sporty coupes and convertibles derived from existing model lines, initially distinguished by \"long hood, short deck\" proportions.</p>"
+}

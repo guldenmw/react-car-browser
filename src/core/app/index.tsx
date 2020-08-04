@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import Navbar from '../../components/navbar';
 import Filters from '../../components/filters';
-import VehicleListings from '../../components/vehicle-listings';
 
 import { StyledApp } from './styles';
 import { mapDispatchToProps, mapStateToProps } from './container';
