@@ -1,6 +1,7 @@
+import { Dispatch } from 'redux';
 import { IVehicleReducerState } from '../../modules/reducer';
 import { resetFilters, updateFilter } from '../../modules/actions';
-import { Dispatch } from 'redux';
+
 
 export const mapStateToProps = (state: IVehicleReducerState) => {
   const { filters } = state;

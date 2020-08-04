@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
-import { IVehicle } from '../../modules/interfaces';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import { StyledVehicleCard } from './styles';
 import { connect } from 'react-redux';
-import { mapDispatchToProps } from './container';
 import { Button, Typography } from '@material-ui/core';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+
+import { IVehicle } from '../../modules/interfaces';
+import { StyledVehicleCard } from './styles';
+import { mapDispatchToProps } from './container';
+
 
 const imageBaseUrl = 'https://warpfrontendtestserver.herokuapp.com/public'
 
@@ -18,6 +20,9 @@ interface IContainerProps {
 
 type IProps = IComponentProps & IContainerProps;
 
+/**
+ * Vehicle card component responsible for displaying all vehicle information
+ */
 const VehicleCard: FC<IProps> = (props) => {
   const { vehicle, addItemToCart } = props;
 
@@ -43,7 +48,7 @@ const VehicleCard: FC<IProps> = (props) => {
           <div className={'add-to-cart'}>
             <Button
               variant={'contained'}
-              onClick={e => addItemToCart(vehicle)}
+              onClick={() => addItemToCart(vehicle)}
               startIcon={<AddShoppingCartIcon/>}
               color={'primary'}
               size={'small'}

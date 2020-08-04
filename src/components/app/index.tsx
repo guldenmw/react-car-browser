@@ -1,14 +1,15 @@
 import React, { FC, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Box, CircularProgress, Typography } from '@material-ui/core';
 
 import Navbar from '../../components/navbar';
 import Filters from '../../components/filters';
 
-import { StyledApp } from './styles';
-import { mapDispatchToProps, mapStateToProps } from './container';
 import { IVehicle } from '../../modules/interfaces';
 import VehicleCard from '../../components/vehicle-card';
-import { Box, CircularProgress, Typography } from '@material-ui/core';
+import { StyledApp } from './styles';
+import { mapDispatchToProps, mapStateToProps } from './container';
+
 
 interface IProps {
   vehicles: IVehicle[];
@@ -17,6 +18,9 @@ interface IProps {
   fetchVehicles?: () => void;
 }
 
+/**
+ * Main App component
+ */
 const App: FC<IProps> = (props) => {
   const {
     vehicles,
@@ -25,6 +29,7 @@ const App: FC<IProps> = (props) => {
     fetchVehicles,
   } = props;
 
+  // On the first load, dispatch the action to fetch all vehicles
   useEffect(() => {
     fetchVehicles();
   }, [fetchVehicles]);
@@ -46,9 +51,11 @@ const App: FC<IProps> = (props) => {
               <CircularProgress size={100}/>
             </Box>
           )}
+
           {!isLoading && !hasError && vehicles?.map((vehicle) => (
             <VehicleCard vehicle={vehicle} key={vehicle?.id}/>
           ))}
+
           {hasError && (
             <Box
               display={'flex'}

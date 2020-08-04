@@ -4,6 +4,7 @@ import {
   FETCH_VEHICLES_ERROR, UPDATE_FILTER, RESET_FILTERS, ADD_ITEM_TO_CART, REMOVE_ITEM_FROM_CART,
 } from '../actions';
 
+
 import { IFilters, IVehicle } from '../interfaces';
 
 export interface IVehicleReducerState {
@@ -92,10 +93,7 @@ const vehicleReducer = (state = initialState, action: {type: string, data: any})
     }
 
     case REMOVE_ITEM_FROM_CART: {
-      console.log('state?.cart: ', state?.cart);
-      console.log('data: ', data);
       const filteredCart = state?.cart?.filter(item => item?.id !== data?.id);
-      console.log('filteredCart: ', filteredCart);
       return {
         ...state,
         cart: filteredCart,

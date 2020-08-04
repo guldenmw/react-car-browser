@@ -4,6 +4,7 @@ export interface IFilters {
   priceFrom: string;
   priceTo: string;
 }
+
 export interface IVehicle {
   id: string;
   manufacturer: string;

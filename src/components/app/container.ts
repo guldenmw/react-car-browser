@@ -1,7 +1,8 @@
+import { Dispatch } from 'redux';
 import { IVehicleReducerState } from '../../modules/reducer';
 import { fetchVehiclesStart } from '../../modules/actions';
-import { Dispatch } from 'redux';
 import { getFilteredVehicles } from '../../helpers';
+
 
 export const mapStateToProps = (state: IVehicleReducerState) => {
   const { vehicles, isLoading, hasError, filters } = state;

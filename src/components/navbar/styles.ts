@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Popover } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
+
 export const StyledShoppingCartIcon = styled(ShoppingCartIcon)`
   color: #fff;
 `;

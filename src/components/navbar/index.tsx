@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { connect } from 'react-redux';
 import { AppBar, Badge, Box, IconButton, Toolbar, Typography } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 import { IVehicle } from '../../modules/interfaces';
 import { StyledPopover, StyledShoppingCartIcon } from './styles';
-import { connect } from 'react-redux';
 import { mapDispatchToProps, mapStateToProps } from './container';
+
 
 interface IComponentProps {
   label: string;
@@ -17,6 +19,9 @@ interface IContainerProps {
 
 type IProps = IComponentProps & IContainerProps;
 
+/**
+ * App Navbar component displaying branding and cart
+ */
 const Navbar: FC<IProps> = (props) => {
   const {
     label,
@@ -70,7 +75,7 @@ const Navbar: FC<IProps> = (props) => {
                 {`${vehicle?.manufacturer} ${vehicle?.model} `}
               </Typography>
               <IconButton
-                onClick={e => removeItemFromCart(vehicle)}
+                onClick={() => removeItemFromCart(vehicle)}
                 aria-label={'remove from shopping cart'}
               >
                 <DeleteIcon color={'error'}/>

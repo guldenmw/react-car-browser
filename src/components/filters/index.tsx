@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
-import { Autocomplete } from '@material-ui/lab';
-import { Filter, FilterHeader, StyledFilters } from './styles';
 import { connect } from 'react-redux';
-import { mapDispatchToProps, mapStateToProps } from './container';
-import { IFilters } from '../../modules/interfaces';
 import { Button, TextField } from '@material-ui/core';
+import { Autocomplete } from '@material-ui/lab';
+
+import { IFilters } from '../../modules/interfaces';
+import { Filter, FilterHeader, StyledFilters } from './styles';
+import { mapDispatchToProps, mapStateToProps } from './container';
+
 
 interface IProps {
   filters?: IFilters;
@@ -25,10 +27,7 @@ const priceRange = [
 ]
 
 /**
- * Component responsible for updating filter values to state
- *
- * @param props
- * @constructor
+ * Component responsible for updating filter values in state
  */
 const Filters: FC<IProps> = (props) => {
   const {

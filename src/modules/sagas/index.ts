@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { FETCH_VEHICLES_START, fetchVehiclesError, fetchVehiclesSuccess } from '../actions';
-import { getVehicles } from '../api';
+import getVehicles from '../api/get-vehicles';
 import getWikiSummary from '../api/get-wiki-summary';
 import { IVehicle, IVehiclesResponse, IWikiResponse } from '../interfaces';
 
@@ -24,12 +24,13 @@ const truncateSummary = (summary: string) => {
  */
 const getVehicleSummaries = async (vehicles: IVehiclesResponse) => {
   return await Promise.all(vehicles?.data?.map(async (vehicle: IVehicle) => {
+    // Combine manufacturer and model strings to get vehicle title
     const vehicleTitle = `${vehicle?.manufacturer}_${vehicle?.model}`;
 
     const wikiResponse: IWikiResponse = await getWikiSummary(vehicleTitle);
     const summary = truncateSummary(wikiResponse?.extract);
 
-    return await {
+    return {
       ...vehicle,
       summary
     }
@@ -41,7 +42,7 @@ const getVehicleSummaries = async (vehicles: IVehiclesResponse) => {
  * the API and their summaries from Wikipedia and
  * sending it through to the reducer to be stored
  */
-function* sagaWorker(action: { type: string, data: any}) {
+function* sagaWorker() {
   try {
     const result = yield call(getVehicles);
 
