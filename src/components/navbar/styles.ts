@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Popover } from '@material-ui/core';
 
 export const StyledNavbar = styled.div`
   display: flex;
@@ -6,7 +7,7 @@ export const StyledNavbar = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
-  height: 50px
+  height: 50px;
 `;
 
 export const Branding = styled.h2`
@@ -18,4 +19,14 @@ export const CartButton = styled.button`
   background: none;
   width: 50px;
   height: 50px;
+`;
+
+export const StyledPopover = styled(Popover)`
+  .cart-item {
+    display: flex;
+  }
+  
+  .MuiPaper-root {
+    padding: 20px;
+  }
 `;
