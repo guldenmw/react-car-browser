@@ -1,4 +1,5 @@
 {
+  "homepage": "http://guldenmw.github.io/warp-assessment/",
   "name": "warp-assessment",
   "version": "0.1.0",
   "private": true,
@@ -24,9 +25,10 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,6 +49,7 @@
   "devDependencies": {
     "@material-ui/types": "^5.1.0",
     "@types/styled-components": "^5.1.2",
+    "gh-pages": "^3.1.0",
     "redux-devtools-extension": "^2.13.8"
   }
 }
