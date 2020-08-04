@@ -9,5 +9,13 @@ export const StyledApp = styled.div<any>`
   .app-body {
     display: flex;
     flex-grow: 1;
+    overflow: hidden;
+  }
+  
+  .vehicle-listings {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    flex-grow: 1;
   }
 `;

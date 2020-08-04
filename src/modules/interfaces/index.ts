@@ -1,3 +1,9 @@
+export interface IFilters {
+  manufacturer: string;
+  body: string;
+  priceFrom: string;
+  priceTo: string;
+}
 export interface IVehicle {
   id: string;
   manufacturer: string;

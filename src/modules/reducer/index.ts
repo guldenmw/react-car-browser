@@ -1,16 +1,18 @@
 import {
   FETCH_VEHICLES_START,
   FETCH_VEHICLES_SUCCESS,
-  FETCH_VEHICLES_ERROR,
+  FETCH_VEHICLES_ERROR, UPDATE_FILTER, RESET_FILTERS, ADD_ITEM_TO_CART, REMOVE_ITEM_FROM_CART,
 } from '../actions';
 
-import { IVehicle } from '../interfaces';
+import { IFilters, IVehicle } from '../interfaces';
 
 export interface IVehicleReducerState {
   vehicles: IVehicle[];
   message: string;
   isLoading: boolean;
   hasError: boolean;
+  filters: IFilters;
+  cart: IVehicle[];
 }
 
 const initialState: IVehicleReducerState = {
@@ -18,6 +20,13 @@ const initialState: IVehicleReducerState = {
   message: '',
   isLoading: false,
   hasError: false,
+  filters: {
+    manufacturer: 'Any',
+    body: 'Any',
+    priceFrom: '0',
+    priceTo: '0',
+  },
+  cart: [],
 };
 
 const vehicleReducer = (state = initialState, action: {type: string, data: any}): IVehicleReducerState => {
@@ -47,6 +56,49 @@ const vehicleReducer = (state = initialState, action: {type: string, data: any})
         isLoading: false,
         hasError: true,
         message: '',
+      }
+    }
+
+    case UPDATE_FILTER: {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [data?.field]: data?.value,
+        }
+      }
+    }
+
+    case RESET_FILTERS: {
+      return {
+        ...state,
+        filters: {
+          manufacturer: 'Any',
+          body: 'Any',
+          priceFrom: '0',
+          priceTo: '0',
+        }
+      }
+    }
+
+    case ADD_ITEM_TO_CART: {
+      return {
+        ...state,
+        cart: [
+          ...state.cart,
+          data,
+        ]
+      }
+    }
+
+    case REMOVE_ITEM_FROM_CART: {
+      console.log('state?.cart: ', state?.cart);
+      console.log('data: ', data);
+      const filteredCart = state?.cart?.filter(item => item?.id !== data?.id);
+      console.log('filteredCart: ', filteredCart);
+      return {
+        ...state,
+        cart: filteredCart,
       }
     }
 
