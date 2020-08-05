@@ -1,8 +1,8 @@
 # Warp Development Assessment
 
 An application used to browse different cars by manufacturer, body style,
-and price with the ability to add items to and remove them from a cart.
-Built using React, Redux, Redux Sagas, Typescript, Jest and React Router.
+and price with the ability to add items to and remove items from a cart.
+Built using React, Redux, Redux Sagas, Typescript, and Material-UI.
 
 
 ## Available Scripts
